@@ -59,31 +59,23 @@ float my_atof(char str[])
             i++;
         }
     }
-
     return num * sign;
 }
-
-
 int main()
 {
     printf("ATOI RESULTS\n");
-
     printf("12345 = %d\n", my_atoi("12345"));
     printf("-12345 = %d\n", my_atoi("-12345"));
     printf("+12345 = %d\n", my_atoi("+12345"));
     printf("0 = %d\n", my_atoi("0"));
     printf("  456 = %d\n", my_atoi("  456"));
     printf("123abc = %d\n", my_atoi("123abc"));
-
-
     printf("\nATOF RESULTS\n");
-
     printf("123.45 = %.2f\n", my_atof("123.45"));
     printf("-45.67 = %.2f\n", my_atof("-45.67"));
     printf("+12.50 = %.2f\n", my_atof("+12.50"));
     printf("0.0 = %.2f\n", my_atof("0.0"));
     printf("  25.75 = %.2f\n", my_atof("  25.75"));
     printf("45.67abc = %.2f\n", my_atof("45.67abc"));
-
-    return 0;
+ return 0;
 }
