@@ -1,0 +1,89 @@
+#include <stdio.h>
+int my_atoi(char str[])
+{
+    int i = 0;
+    int sign = 1;
+    int num = 0;
+    while (str[i] == ' ' || str[i] == '\t')
+    {
+        i++;
+    }
+    if (str[i] == '-')
+    {
+        sign = -1;
+        i++;
+    }
+    else if (str[i] == '+')
+    {
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        num = num * 10 + (str[i] - '0');
+        i++;
+    }
+
+    return num * sign;
+}
+float my_atof(char str[])
+{
+    int i = 0;
+    int sign = 1;
+    float num = 0.0;
+    float decimal = 0.1;
+    while (str[i] == ' ' || str[i] == '\t')
+    {
+        i++;
+    }
+    if (str[i] == '-')
+    {
+        sign = -1;
+        i++;
+    }
+    else if (str[i] == '+')
+    {
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        num = num * 10 + (str[i] - '0');
+        i++;
+    }
+    if (str[i] == '.')
+    {
+        i++;
+        while (str[i] >= '0' && str[i] <= '9')
+        {
+            num = num + (str[i] - '0') * decimal;
+            decimal = decimal / 10;
+            i++;
+        }
+    }
+
+    return num * sign;
+}
+
+
+int main()
+{
+    printf("ATOI RESULTS\n");
+
+    printf("12345 = %d\n", my_atoi("12345"));
+    printf("-12345 = %d\n", my_atoi("-12345"));
+    printf("+12345 = %d\n", my_atoi("+12345"));
+    printf("0 = %d\n", my_atoi("0"));
+    printf("  456 = %d\n", my_atoi("  456"));
+    printf("123abc = %d\n", my_atoi("123abc"));
+
+
+    printf("\nATOF RESULTS\n");
+
+    printf("123.45 = %.2f\n", my_atof("123.45"));
+    printf("-45.67 = %.2f\n", my_atof("-45.67"));
+    printf("+12.50 = %.2f\n", my_atof("+12.50"));
+    printf("0.0 = %.2f\n", my_atof("0.0"));
+    printf("  25.75 = %.2f\n", my_atof("  25.75"));
+    printf("45.67abc = %.2f\n", my_atof("45.67abc"));
+
+    return 0;
+}
